@@ -50,6 +50,47 @@ jobs:
         run: python lastampa.py
         continue-on-error: true
 
+      - name: Update generated feed metadata
+        run: |
+          python - <<'PY'
+          from lxml import etree as ET
+          from pathlib import Path
+
+          site_url = "https://giuliomagnifico.github.io/RSSFeedGenerator/"
+          generators = {
+              "avvenire.xml": "Avvenire by Giulio Magnifico",
+              "ilpost.xml": "Il Post by Giulio Magnifico",
+              "lastampa.xml": "La Stampa by Giulio Magnifico",
+          }
+
+          for filename, generator_text in generators.items():
+              path = Path(filename)
+              if not path.exists():
+                  continue
+
+              parser = ET.XMLParser(remove_blank_text=True)
+              tree = ET.parse(str(path), parser)
+              channel = tree.getroot().find("channel")
+
+              if channel is None:
+                  continue
+
+              link = channel.find("link")
+              if link is not None:
+                  link.text = site_url
+
+              generator = channel.find("generator")
+              if generator is not None:
+                  generator.text = generator_text
+
+              tree.write(
+                  str(path),
+                  pretty_print=True,
+                  xml_declaration=True,
+                  encoding="UTF-8",
+              )
+          PY
+
       - name: Commit updated feeds
         run: |
           git config user.name "github-actions[bot]"
