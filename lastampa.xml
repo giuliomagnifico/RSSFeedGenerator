@@ -2,10 +2,10 @@
 <rss version="2.0">
   <channel>
     <title>La Stampa RSS Feed - Articoli Principali</title>
-    <link>http://rss.draghetti.it</link>
+    <link>https://giuliomagnifico.github.io/RSSFeedGenerator/</link>
     <description>RSS feed degli articoli principali pubblicati su La Stampa</description>
     <language>it-IT</language>
-    <generator>La Stampa by Andrea Draghetti</generator>
+    <generator>La Stampa by Giulio Magnifico</generator>
     <item>
       <title>Bagni, scarpe e kit di soccorso: a Torino la sentenza che riscrive il diritto alla salute dei rider</title>
       <link>https://www.lastampa.it/torino/2026/08/26/news/bagni_scarpe_e_kit_di_soccorso_a_torino_la_sentenza_che_riscrive_il_diritto_alla_salute_dei_rider-15722435/</link>

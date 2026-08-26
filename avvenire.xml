@@ -2,10 +2,10 @@
 <rss version="2.0">
   <channel>
     <title>Avvenire RSS Feed - Articoli Principali</title>
-    <link>http://rss.draghetti.it</link>
+    <link>https://giuliomagnifico.github.io/RSSFeedGenerator/</link>
     <description>RSS feed degli articoli principali pubblicati sull'Avvenire</description>
     <language>it-IT</language>
-    <generator>Avvenire by Andrea Draghetti</generator>
+    <generator>Avvenire by Giulio Magnifico</generator>
     <item>
       <title>"Il perdono rende liberi": la lezione di Chiara e Davide al Meeting</title>
       <link>https://www.avvenire.it/attualita/il-perdono-rende-liberi-la-lezione-di-chiara-e-davide-al-meeting_112308</link>

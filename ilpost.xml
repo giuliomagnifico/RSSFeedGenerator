@@ -2,10 +2,10 @@
 <rss version="2.0">
   <channel>
     <title>Il Post RSS Feed - Articoli Principali</title>
-    <link>http://rss.draghetti.it</link>
+    <link>https://giuliomagnifico.github.io/RSSFeedGenerator/</link>
     <description>RSS feed degli articoli principali pubblicati Il Post</description>
     <language>it-IT</language>
-    <generator>Il Post by Andrea Draghetti</generator>
+    <generator>Il Post by Giulio Magnifico</generator>
     <item>
       <title>Perché per molti alberi l'autunno sembra già cominciato</title>
       <link>https://www.ilpost.it/2026/08/25/alberi-autunno-agosto/</link>
