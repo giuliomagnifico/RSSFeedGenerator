@@ -34,10 +34,6 @@ jobs:
       - name: Create runtime config
         run: cp Config.sample.py Config.py
 
-      - name: Generate Fanpage feed
-        run: python fanpage.py
-        continue-on-error: true
-
       - name: Generate Il Post feed
         run: python ilpost.py
         continue-on-error: true
