@@ -1,0 +1,61 @@
+name: Update RSS feeds
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-rss-feeds
+  cancel-in-progress: false
+
+jobs:
+  update-feeds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create runtime config
+        run: cp Config.sample.py Config.py
+
+      - name: Generate Fanpage feed
+        run: python fanpage.py
+        continue-on-error: true
+
+      - name: Generate Il Post feed
+        run: python ilpost.py
+        continue-on-error: true
+
+      - name: Generate Avvenire feed
+        run: python avvenire.py
+        continue-on-error: true
+
+      - name: Generate La Stampa feed
+        run: python lastampa.py
+        continue-on-error: true
+
+      - name: Commit updated feeds
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.xml'
+          if git diff --cached --quiet; then
+            echo "No feed changes to commit"
+            exit 0
+          fi
+          git commit -m "Update RSS feeds"
+          git push
