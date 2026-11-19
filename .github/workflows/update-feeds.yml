@@ -46,6 +46,10 @@ jobs:
         run: python lastampa.py
         continue-on-error: true
 
+      - name: Generate Reddit r/italy feed
+        run: python reddit.py
+        continue-on-error: true
+
       - name: Update generated feed metadata
         run: |
           python - <<'PY'
@@ -97,5 +101,5 @@ jobs:
             exit 0
           fi
           git commit -m "Update RSS feeds"
-          git pull --rebase origin master
-          git push origin master
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
