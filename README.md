@@ -4,6 +4,10 @@ I Feed RSS generati sono disponibili su:
 
 https://giuliomagnifico.github.io/RSSFeedGenerator/
 
+Reddit r/italy (nuovi post): https://giuliomagnifico.github.io/RSSFeedGenerator/reddit-italy.xml
+
+Il generatore Reddit legge i post pubblici dall'HTML di /r/italy/new senza usare le API JSON. Se Reddit blocca la richiesta o il parser non trova post validi, il feed XML precedente viene conservato. L'accesso dai runner GitHub Actions non è garantito.
+
 ### License
 
 GNU General Public License version 2.0 (GPLv2)
